@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+    	
+    <version>1.0</version>
+    	
+    <configs>
+        		
+        <config default="true" name="Zadanie 4" category="opl">
+            			
+            <ref name="Zadanie 4.mod" type="model">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="Zadanie 1" category="opl">
+            			
+            <ref name="Zadanie 1.mod" type="model">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="Zadanie 2" category="opl">
+            			
+            <ref name="Zadanie 2.mod" type="model">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="Zadanie 3" category="opl">
+            			
+            <ref name="Zadanie 3.mod" type="model">
+			</ref>
+            		
+        </config>
+        	
+    </configs>
+    	
+
+</project>

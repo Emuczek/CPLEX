@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+    	
+    <version>1.0</version>
+    	
+    <configs>
+        		
+        <config default="true" name="Configuration1" category="opl">
+            			
+            <ref name="podzbior.mod" type="model">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="Configuration2" category="opl">
+            			
+            <ref name="problem plecakowy.mod" type="model">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="Configuration3" category="opl">
+            			
+            <ref name="problem przydzielenia.mod" type="model">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="Configuration4" category="opl">
+            			
+            <ref name="problem przydzielenia v2.mod" type="model">
+			</ref>
+            		
+        </config>
+        		
+        <config default="false" name="Configuration5" category="opl">
+		</config>
+        	
+    </configs>
+    	
+
+</project>
