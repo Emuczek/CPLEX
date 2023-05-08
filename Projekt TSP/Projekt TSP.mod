@@ -4,9 +4,11 @@
  * Creation Date: May 8, 2023 at 10:26:57 PM
  *********************************************/
  
+ // WERSJA 1.0 (09/05/2023 01:21 AM)
+ 
  range r_x = 1..100; // długość wektora zmiennych decyzyjnych (nadmiarowy)
  
- int i_k = 3; // ilość kurierów
+ int i_k = 3; // ilość kuriersów
  range r_k = 1..i_k;
  
  int i_p = 10; // ilość miejsc na mapie
@@ -16,7 +18,7 @@
  range r_m = 1..i_m;
  int m_m[r_m] = [2, 3, 5, 6, 7, 8, 9]; // miejsca do odwiedzenia
  
- int i_s = 5; // miejsce startu kurierów
+ int i_s = 5; // miejsce startu kuriersów
  
  int m_d[r_p][r_p] =    [ [0, 256, 366, 0, 280, 259, 0, 157, 181, 34] , //macierz odległości
 						[256, 0, 372, 0, 259, 0, 202, 0, 59, 295] ,
@@ -31,10 +33,12 @@
 						
 dvar int x[r_k][r_x];
 
-minimize sum(i in r_k)( sum(j in 1..i_k-1) m_d[x[i][j]][x[i][j+1]]);
+minimize sum(i in r_k)( sum(j in 1..i_k-1) m_d[x[i][j]][x[i][j+1]]); // minimalizujemy "koszt" przejazdu wszystkich kuriersów
 						
 subject to
 {
-  forall (i in r_m)( sum(j in r_k)( sum(l in r_x)(x[j][l] == m_m[i]) ) >= 1);
+  forall (i in r_m)( sum(j in r_k)( sum(l in r_x)(x[j][l] == m_m[i]) ) >= 1); // odwiedziliśmy każde miejsce (wszystkie elementy z miejsc są w macierzy kurierów)
+  forall (i in r_k, j in r_x) m_d[x[i][j]][x[i][j+1]] != 0; // węzeł musi mieć ścieżkę do kolejnego węzła
+  forall (i in r_k) x[i][1] == i_s; // ścieżka kuriera musi się zaczynać w punkcie startowym
+  forall (j in r_k, i in r_x) x[i][j] != x[i][j]; // dwóch kurierów nie może być w tym samym czasie w jednym węźle
 }
-
