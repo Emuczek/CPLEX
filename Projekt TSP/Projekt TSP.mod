@@ -40,5 +40,10 @@ subject to
   forall (i in r_m)( sum(j in r_k)( sum(l in r_x)(x[j][l] == m_m[i]) ) >= 1); // odwiedziliśmy każde miejsce (wszystkie elementy z miejsc są w macierzy kurierów)
   forall (i in r_k, j in r_x) m_d[x[i][j]][x[i][j+1]] != 0; // węzeł musi mieć ścieżkę do kolejnego węzła
   forall (i in r_k) x[i][1] == i_s; // ścieżka kuriera musi się zaczynać w punkcie startowym
-  forall (j in r_k, i in r_x) x[i][j] != x[i][j]; // dwóch kurierów nie może być w tym samym czasie w jednym węźle
+  if (x[i][j] != 0) {         // w przypadku zera (brak ruchu) nie sprawdzaj (przecierz wtedy kurier nie sprawdzi, że tam może już ktoś czekać)
+      x[i][j] != x[i][j+1];   // aaaaaaaaaaaa
+   } else {
+      true;
+   }
+  forall (j in r_k, i in r_x) x[i][j] != x[i][j+1]; // dwóch kurierów nie może być w tym samym czasie w jednym węźle 
 }
