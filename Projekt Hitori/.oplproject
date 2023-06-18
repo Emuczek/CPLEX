@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+    	
+    <version>1.0</version>
+    	
+    <configs>
+        		
+        <config default="true" name="Configuration1" category="opl">
+            			
+            <ref name="Projekt Hitori.mod" type="model">
+			</ref>
+            			
+            <ref name="Projekt Hitori.ops" type="setting">
+			</ref>
+            		
+        </config>
+        	
+    </configs>
+    	
+
+</project>
